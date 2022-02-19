@@ -58,9 +58,7 @@ export default class BeautifierDoc extends Doc {
     builder.appendBadges([
       {
         description: "npm downloads",
-        url: `https://img.shields.io/npm/dt/${
-          this.packageName
-        }.svg?style=flat-square`,
+        url: `https://img.shields.io/npm/dt/${this.packageName}.svg?style=flat-square`,
         href: `https://www.npmjs.com/package/${this.packageName}`,
       },
       ...this.repoBadges,
