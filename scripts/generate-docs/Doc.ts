@@ -28,16 +28,19 @@ export default abstract class Doc {
     );
   }
   protected get frontMatter(): Promise<string> {
-    return Promise.all([this.id, this.title, this.sidebarLabel]).then(
-      ([id, title, sidebarLabel]) =>
-        [
-          "---",
-          `id: ${id}`,
-          `title: ${title}`,
-          `sidebar_label: ${sidebarLabel}`,
-          this.customEditUrl ? `custom_edit_url: ${this.customEditUrl}` : "",
-          "---",
-        ].join("\n")
+    return Promise.all([
+      this.id,
+      this.title,
+      this.sidebarLabel,
+    ]).then(([id, title, sidebarLabel]) =>
+      [
+        "---",
+        `id: ${id}`,
+        `title: ${title}`,
+        `sidebar_label: ${sidebarLabel}`,
+        this.customEditUrl ? `custom_edit_url: ${this.customEditUrl}` : "",
+        "---",
+      ].join("\n")
     );
   }
 }
